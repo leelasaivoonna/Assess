@@ -1,0 +1,633 @@
+a.
+
+1
+23
+456
+7890
+
+for i in range(4):
+    for j in range(1, num):
+        if counter == 10:
+            counter =0
+        print(counter, end=' ')
+        counter += 1
+    print("")
+    num += 1
+
+
+b.
+
+1
+22
+333
+4444
+55555
+
+for i in range(1,6):
+    for j in range(1, i+1):
+        print(i, end="")
+    print()
+
+c. 
+
+    1
+   1 2
+  1 2 3
+ 1 2 3 4
+1 2 3 4 5
+ 1 2 3 4
+  1 2 3
+   1 2
+    1
+
+
+
+for i in range(1, 6):
+    for k in range(6,i+1,-1):
+        print(" ", end="")
+    
+    for j in range(1, i+1):
+        print(j, end=" ")
+    
+    print()
+for i in range(5,1,-1):
+    for k in range(6-i,0,-1):
+        print(" ", end="")
+    for j in range(1,i):
+        print(j, end=" ")
+    print()
+
+
+
+
+2. write a code to generate fibanocci series
+n = 20
+a = 0
+b = 1
+if n == 1:
+    print(a)
+else:
+    print(a)
+    print(b)
+    for i in range(2,n + 1):
+        c = a + b
+        a = b
+        b = c
+        print(c)
+
+
+
+3. 1! = 1
+   2! = 2
+ 145! = 1! + 4! + 5!
+      = 1  + 24 + 120
+      = 145
+
+def factorial(number):
+    if (number == 0 or number == 1):
+        fact = 1
+    else:
+        fact = number * factorial(number - 1)
+    return fact
+
+
+def strong_number(list):
+    new_list = []
+
+    for x in list:
+        temp = x
+        sum = 0
+        while (temp):
+            rem = temp % 10
+            sum += factorial(rem)
+            temp = temp // 10
+        if (sum == x):
+            new_list.append(x)
+        else:
+            pass
+
+    return new_list
+
+all_nums = [i for i in range(1000)]
+strong_num_list = strong_number(all_nums)
+print(strong_num_list)
+
+
+
+
+
+what is the next number which satisfies this condition
+
+4. write a code to generate pascals triangle
+
+from math import factorial
+n = 5
+for i in range(n):
+    for j in range(n - i + 1):
+        print(end=" ")
+    for j in range(i + 1):
+        print(factorial(i) // (factorial(j) * factorial(i - j)), end=" ")
+    print()
+
+
+
+
+5. (greedy ? )
+	
+
+
+
+
+cntr = 0
+j = 1
+while cntr < 6:
+    num = j
+    flag = False
+    lst = []
+    for i in range(3):
+        if (num - 1) % 3 == 0:
+            res = (num - 1) // 3 + 1
+            lst.append(res)
+            num = num - res
+            if i == 2:
+                flag = True
+        else:
+            break
+    if flag and num and num % 3 == 0:
+        print("Total {} -->  remaining {} --> father distributes {} to each daughter".format(j, num, num//3))
+        print("\t\tDaughter #1 --> {}\n\t\tDaughter #2 -->{}\n\t\tDaughter #3 --> {}".format(lst[0], lst[1], lst[2]))
+        cntr += 1
+    j += 1
+
+
+
+
+
+
+
+
+DAY -2 , identity matrix
+for i in range(0, 5):
+        for j in range(0, 5):
+            if i!=j:
+                print(0 ,end=" ")
+            else:
+                print(1, end=" ")
+            
+        print()
+
+Armstrong number with range 
+
+lower = 100
+upper = 2000
+
+for num in range(lower, upper + 1):
+
+    order = len(str(num))
+    sum = 0
+
+    temp = num
+    while temp > 0:
+        digit = temp % 10
+        sum += digit ** order
+        temp //= 10
+
+    if num == sum:
+        print(num)
+
+
+
+
+
+1)dic1={1:10, 2:20}
+dic2={3:30, 4:40}
+dic3={5:50,6:60}
+
+dic4={**dic1,**dic2,**dic3}
+
+print(dic4)
+
+
+2.Write a Python script to check whether a given key already exists in a dictionary
+dic1={"name":"leelaah","age":22,"course":"python"}
+n=input("enter the key:")
+
+if n in dic1:
+    print("element exists")
+    
+else:
+    print("no required element")
+
+    
+
+
+3. Write a Python program to iterate over dictionaries using for loops.
+
+dic={"name":"leelaah","age":22,"course":"python"}
+
+for i,j in dic.items():
+     for k in range(0,len(dic)+1):
+         dic[i]=None
+
+print(dic)
+
+
+
+
+4. Write a Python script to generate and print a dictionary that contains a number (between 1 and n) in the form (x, x*x). 
+n=int(input("enter the max number :"))
+lst=[]
+dict1={}
+for i in range(1,n+1):
+    lst.append(i)
+for k in range(len(lst)):
+    dict1.setdefault(lst[k],lst[k]**2)
+print(dict1)
+----------------------------------------------------
+d={x:x**2 for x in range(1,20)}
+print(d)
+
+
+
+
+
+
+5. Write a Python program to remove duplicates (values) from Dictionary
+dic1={"name1":"leelaah","name2":"kiran","name3":"surya","name4":"kumar","name5":"leelaah","name6":"kiran"}
+res={}
+for i,j in dic1.items():
+    if j not in res.values():
+        res.setdefault(i,j)
+print(res)
+
+
+
+
+6. Write a code to get the key of a minimum value from a dictionary
+dic1={"a":10,"b":3,"c":5,"d":6,"e":8}
+s=[]
+for i,k in dic1.items():
+    s.append(k)
+print(s)
+print(f"mininum value in the dictionary is: {min(s)}")
+
+
+
+
+
+
+
+7. Reverse a list in Python
+lst=[2,3,4,6,8]
+lst1=lst[::-1]
+print(lst1)
+
+
+8. Remove all occurrences of a specific item from a list.
+lst=[1,6,8,9,5]
+item=int(input("enter the number :"))
+def occurance(lst,item):
+    lst_org=[i for i in lst if i!=item]
+    return list(lst_org)
+    
+lst_final=occurance(lst,item)
+
+print(lst_final)
+    
+
+9. Write a Python program to sum all the items in a list
+lst=[2,6,8,9,5]
+cnt=0
+for i in lst:
+    cnt=cnt+i
+print(cnt)
+
+
+
+
+
+
+
+
+   
+
+10. Write a Python program to get the second largest number from a list
+
+
+lst=[8,3,4,10]
+lst.remove(max(lst))
+print(max(lst))
+
+
+
+
+11. Write a Python program to find the second smallest number in a lis
+
+
+lst=[8,3,4,10]
+lst.remove(min(lst))
+print(min(lst))
+
+
+
+12. Write a Python program to get unique values from a list.
+
+
+lst=[1,3,1,5,6,5,8,9]
+res=[]
+for i in lst:
+    if i not in res:
+        res.append(i)
+        
+print(f"result list:{res}")
+
+
+13. Write a Python program to get count of repetition of each value from a list.
+lst=[1,1,5,3,4,5,8,6,8,3,4,10]
+dict1 ={value:lst.count(value) for value in lst}
+res={}
+for i,j in dict1.items():
+    if i not in res:
+        res.setdefault(i,j)
+        
+print(res)
+
+
+
+
+14. Write a Python program to find common items from two lists.
+lst=[1,3,4,5,8]
+lst1=[5,9]
+
+
+cmn=set(lst).intersection(set(lst1))
+print(cmn)
+
+
+
+15. Write a Python program to count number of lists in a list of lists.
+
+lst=[[2,3,7],[8,4,0],[8,6,4]]
+count=0
+for i in lst:
+    type(i)==type([])
+    count+=1 
+print(count)
+    
+
+
+
+5 DAY ------------------------------------
+from datetime import datetime 
+
+def logBeforeAfter(fun):
+    def helper(*args,**kwargs):
+        print(f"log in before time:{datetime.now}")
+        print(fun(*args))
+        print(f"log in after time: {datetime.now}")
+    return helper
+        
+@logBeforeAfter
+def fun(x, y):
+    print("fun", x, y)
+    
+@logBeforeAfter
+def fun1(*args):
+    print("fun1", args)
+    
+@logBeforeAfter
+def fun2(**kwargs):
+    print("fun2", kwargs)
+    
+    
+fun(5,6)
+fun1("happy", "python")
+fun2(first ='leelaah') 
+
+
+
+Day -6
+f = open("data.txt", "w")
+
+choice = "y"
+nt = ""
+while choice == "y":
+    st = input("enter the content of the file :")
+
+    nt = nt +" \n" + st
+
+    choice = input("dou you want to continue Yes / No ")
+
+f.write(nt)
+f.close()
+
+---------------------------------------
+import os
+
+dir = os.getcwd()
+print(f"dir :{dir}")
+
+dir = "C:\Training\PycharmProjects\Zensar02\Day06"
+os.chdir(dir)
+print(os.getcwd())
+print("-" * 40)
+
+files = os.listdir()
+# print(files)
+lst = []
+for file in files:
+    if file.endswith(".py"):
+        lst.append(file)
+
+FL = open("C:\\Training\\PycharmProjects\\Zensar02\Day07\\report.txt", "w")
+for file in lst:
+    FL.write(file + " => " + str(os.path.getsize(file)) + "\n")
+FL.close()
+
+
+
+
+
+
+
+DAY-05 ---------------------------------------------------------
+
+decorates problems
+
+def drawborders(el1,el2,el3):
+    def pattern_fun(fun):
+        def inner_fun(*args):
+            print(el1 * 40)
+            fun(*args)
+            print(el2 * 40)
+        return inner_fun
+    return pattern_fun
+
+
+
+
+@drawborders('*','#',40)
+def greet(msg):
+    print("greet",msg)
+
+@drawborders('=','_',40)
+def RSVP(msg):
+    print("RSVP",msg)
+
+
+greet("welcome to python")
+RSVP("Have a good day")
+
+
+
+
+from datetime import datetime
+
+
+def logBeforeAfter(fun):
+    def helper(*args, **kwargs):
+        print()
+        print(f"log in before time:{datetime.now()}")
+        fun(*args , **kwargs)
+        print(f"log out time: {datetime.now()}")
+        print("-" * 40)
+
+    return helper
+
+
+@logBeforeAfter
+def fun(x, y):
+    print("fun", x, y)
+
+@logBeforeAfter
+def fun1(*args):
+    print("fun1", args)
+
+
+@logBeforeAfter
+def fun2(**kwargs):
+    print("fun2", kwargs)
+
+@logBeforeAfter
+def fun3(*args, **kwargs):
+    print("fun3", args, kwargs)
+
+fun(5, 6)
+fun1("happy", "python","java")
+fun2(first ='leelaah' , second="saiee")
+fun3(6, name= " leelaah")
+
+
+
+
+def nozero(fun):
+    def vishnavi(x,y):
+        if x==0 or y==0:
+            print("no operations with zero")
+        else:
+            print(fun(x,y))
+    return vishnavi
+
+@nozero
+def div(x,y):
+	return x/y
+
+@nozero
+def mul(x,y):
+	return x*y
+
+@nozero
+def add(x,y):
+	return x+y
+@nozero
+def sub(x,y):
+	return x-y
+
+div(9,5)
+mul(9,5)
+add(6,20)
+sub(56,45)
+
+
+
+Day -6 codes
+
+
+2. open a directory (day06, use os module) and generate a report to print the following
+
+import os
+
+dir = os.getcwd()
+print(f"dir :{dir}")
+
+dir = "C:\Users\LEELA SAI\Downloads\Zensar02-master\Day06"
+os.chdir(dir)
+print(os.getcwd())
+print("-" * 40)
+
+files = os.listdir()
+# print(files)
+lst = []
+for file in files:
+    if file.endswith(".py"):
+        lst.append(file)
+
+FL = open("C:\\Users\\LEELA SAI\\Downloads\\Zensar02-master\\Day07\\report.txt", "w")
+for file in lst:
+    FL.write(file + " => " + str(os.path.getsize(file)) + "\n")
+FL.close()
+
+
+
+Day -6
+
+1. Write a code to accept data for a file until the choice of the user is 'NO'
+
+
+f = open("data.txt", "w")
+
+choice = "y"
+nt = ""
+while choice == "y":
+    st = input("enter the content of the file :")
+
+    nt = nt +" \n" + st
+
+    choice = input("dou you want to continue Yes / No ")
+
+f.write(nt)
+
+
+f.close()
+
+
+Day -7 code
+import re
+
+lcno = "LCNO-APN-70-2022-2320"
+
+es = re.search(r LCNO-(KAR|HER|TND|TEL|APN|MAH|GOA)-([0-6] [1-9][1-7] [0-3])-([2-9][0-9]{3})*
+
+		r'-((?!0000) [0-9]{4})', lcno)
+
+
+if res:
+
+	print("Match found....") 
+	print (res.group(0))
+
+else:
+	print('Match not found......')
+
+
+
+Day -4 
+import datetime
+dict_months = {}
+for i in range(1,13):
+    dict_months[datetime.date(2020, i, 1).strftime('%B').lower()] = i
+print(dict_months)
+
+
+
+
